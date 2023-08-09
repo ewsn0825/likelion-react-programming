@@ -1,15 +1,19 @@
-import Heading from "./Heading";
-import Description from "./Description";
-import RenderingProcessList from "./RenderProcessList";
+import RootLayout from './layout/RootLayout';
 
-// App 함수 컴포넌트를 작성합니다.
+import Home from './pages/Home';
+// import About from './pages/About';
+
+// {/* 홈 페이지 : index.html */}
+// {/* 소개 페이지 : about.html */}
+// {/* 제품 목록 페이지 : products.html */}
+// {/* 의뢰 페이지 : contact.html */}
+
 function App() {
-  // JSX 값 반환
   return (
     <div className="App">
-      <Heading />
-      <Description />
-      <RenderingProcessList />
+      <RootLayout>
+        <Home />
+      </RootLayout>
     </div>
   );
 }

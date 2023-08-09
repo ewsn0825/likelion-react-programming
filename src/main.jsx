@@ -1,10 +1,11 @@
 // import { createRoot } from '../node_modules/react-dom/client';
+
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 // React 함수 컴포넌트의 요건
 // - 함수 이름은 첫글자가 대문자!
 // - JSX를 반환!
-
 
 
 // createRoot
@@ -15,6 +16,8 @@ createRoot(document.getElementById("root"))
   // React 요소를 실제 DOM 요소에 렌더링 한다.
   .render(
     // App 컴포넌트를 렌더링할 수 있도록 JSX 구문을 추가합니다.
-    <App />
+    <StrictMode>
+      <App />
+    </StrictMode>
     // <App></App>
   );
