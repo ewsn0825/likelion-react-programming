@@ -1,6 +1,6 @@
 import RootLayout from './layout/RootLayout';
 
-import Practice from './pages/Practice';
+import Practice from './pages/Practice/Practice';
 // import Home from './pages/Home';
 // import About from './pages/About';
 
