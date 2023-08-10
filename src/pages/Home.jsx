@@ -6,10 +6,10 @@ function Home() {
     <div>
       <h2>홈 페이지</h2>
 
-      <Logo/>
-      <Logo color="blue" size={12} />
+      {/* <Logo/> */}
+      {/* <Logo color="blue" size={12} />
       <Logo color="sky" />
-      <Logo color="rose" size={108} />
+      <Logo color="rose" size={108} /> */}
     </div>
   );
 }
