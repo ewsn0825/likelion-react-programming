@@ -1,13 +1,16 @@
-import ConditionalDisplay from './parts/ConditionalDisplay';
-import ConditionalRendering from './parts/ConditionalRendering';
-import DisplayingData from './parts/DisplayingData';
-import RenderingLists from './parts/RenderingLists';
-import { imageType, isShowReactImage, statusMessage } from './parts/data';
+import ConditionalDisplay from "./parts/ConditionalDisplay";
+import ConditionalRendering from "./parts/ConditionalRendering";
+import DisplayingData from "./parts/DisplayingData";
+import RenderingLists from "./parts/RenderingLists";
+import { imageType, isShowReactImage, statusMessage } from "./parts/data";
 
 function DefinitionList() {
-  const renderList = () => {
+  const renderList = ({ reverse = false } = {}) => {
+    console.log(reverse);
     const renderListItem = (message) => <li key={message}>{message}</li>;
-    return statusMessage.map(renderListItem);
+    return (!reverse ? statusMessage : statusMessage.toReversed()).map(
+      renderListItem
+    );
   };
 
   const allHidden = false;
@@ -16,7 +19,10 @@ function DefinitionList() {
     <dl className="descriptionList">
       <DisplayingData hidden={allHidden} statusMessage={statusMessage} />
       <ConditionalRendering hidden={allHidden} imageType={imageType} />
-      <ConditionalDisplay hidden={allHidden} isShowReactImage={isShowReactImage} />
+      <ConditionalDisplay
+        hidden={allHidden}
+        isShowReactImage={isShowReactImage}
+      />
       <RenderingLists statusMessage={statusMessage} renderList={renderList} />
     </dl>
   );
