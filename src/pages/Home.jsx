@@ -15,4 +15,8 @@ function Home() {
   );
 }
 
+<<<<<<< HEAD
 export default Home;
+=======
+export default Home;
+>>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944

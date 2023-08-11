@@ -47,9 +47,17 @@ abbr[title] {
   background: #0007;
 }
 
+<<<<<<< HEAD
 
 .container {
   padding: 20px;
   background: pink;
   color: #fff;
 }
+=======
+.container {
+  padding: 24px;
+  background: #4744be99;
+  color: #17172d;
+}
+>>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944

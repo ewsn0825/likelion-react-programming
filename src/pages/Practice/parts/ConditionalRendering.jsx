@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import reactImagePath from '@/assets/react.svg';
 import viteImagePath from '@/assets/vite.svg';
+=======
+// import reactImagePath from '@/assets/react.svg';
+// import viteImagePath from '@/assets/vite.svg';
+>>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
 
 const status = 'isSuccess';
 
@@ -14,6 +19,7 @@ function ConditionalRendering({ hidden, imageType }) {
     default:
   }
 
+<<<<<<< HEAD
   const imageComponent =
     imageType === 'vite' ? (
       <img src={viteImagePath} alt="비트" />
@@ -22,6 +28,16 @@ function ConditionalRendering({ hidden, imageType }) {
     );
 
   console.log(imageComponent);
+=======
+  // const imageComponent =
+  //   imageType === 'vite' ? (
+  //     <img src={viteImagePath} alt="비트" />
+  //   ) : (
+  //     <img src={reactImagePath} alt="리액트" />
+  //   );
+
+  // console.log(imageComponent);
+>>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
 
   const isReactImage = imageType === 'react';
   const imageLabel = isReactImage ? 'React' : 'Vite';
@@ -62,4 +78,8 @@ function renderRandomImageOrSpinner() {
   );
 }
 
+<<<<<<< HEAD
 export default ConditionalRendering;
+=======
+export default ConditionalRendering;
+>>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
