@@ -15,11 +15,7 @@ function Controller() {
           // 사이드 이펙트(side effect) 영역
           // React 렌더링 과정과 상관 없이 여기에는 어떤 코드든 작성 가능합니다.
           const practiceElement = getNode('.Practice');
-<<<<<<< HEAD
-          practiceElement.scroll({ top: 1000, behavior: 'smooth' });
-=======
           practiceElement.scroll({ top: 900, behavior: 'smooth' });
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
         }}
       />
 
@@ -36,8 +32,4 @@ function Controller() {
   );
 }
 
-<<<<<<< HEAD
 export default Controller;
-=======
-export default Controller;
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944

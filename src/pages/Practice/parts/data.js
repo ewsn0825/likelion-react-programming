@@ -15,8 +15,4 @@ export const reactLibrary = {
   writtenIn: 'JavaScript',
   type: 'JavaScript 라이브러리',
   license: 'MIT',
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944

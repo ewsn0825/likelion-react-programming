@@ -7,28 +7,14 @@
   color: var(--primary-color);
 
   &::placeholder {
-<<<<<<< HEAD
-    color: color-mix(
-      in srgb,
-      var(--primary-color) 80%,
-      var(--white-color) 100%
-    );
-  }
-}
-=======
     color: color-mix(in srgb, var(--primary-color) 80%, var(--white-color) 100%);
   }
 }
 
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
 .secondary {
   color: #34b2be;
 }
 
 .accent {
   color: #8034be;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944

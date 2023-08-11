@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-import { reactLibrary } from "./data";
-
-//객체를 순환해서 리스트 렌더링
-=======
 import { reactLibrary } from './data';
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
 
 function RenderingLists({ statusMessage, renderList }) {
   return (
@@ -37,26 +31,16 @@ function RenderingLists({ statusMessage, renderList }) {
         </p>
         <dl className="reactLibrary">
           {/* 여기서 설명 목록으로 리스트 렌더링 합니다. */}
-<<<<<<< HEAD
-
-          {/* <pre>{JSON.stringify(Object.entries(reactLibrary), null, 2)}</pre> */}
-          {Object.entries(reactLibrary).map(([key, value]) => {
-            return ( 
-=======
           {/* reactLibrary 객체를 순환해서 리스트 렌더링 */}
           {/* <pre>{JSON.stringify(reactLibrary, null, 2)}</pre> */}
           {/* <pre>{JSON.stringify(Object.entries(reactLibrary), null, 2)}</pre> */}
           {Object.entries(reactLibrary).map(([key, value]) => {
             return (
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
               <div key={key}>
                 <dt>{key}</dt>
                 <dd>{value}</dd>
               </div>
-<<<<<<< HEAD
-=======
               
->>>>>>> 99329f3bbc9177a496b3e732c8bbd4c74d5c1944
             );
           })}
         </dl>
