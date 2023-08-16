@@ -1,12 +1,9 @@
-
-
 function LearnStateAndEffects() {
   return (
     <>
-      Learn State And Effects
+      <h2>Learn State And Effects</h2>
     </>
-    
-  )
+  );
 }
 
-export default LearnStateAndEffects
+export default LearnStateAndEffects;
