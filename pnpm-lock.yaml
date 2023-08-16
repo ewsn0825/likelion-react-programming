@@ -23,11 +23,7 @@ devDependencies:
     specifier: ^4.0.3
     version: 4.0.3(vite@4.4.5)
   autoprefixer:
-<<<<<<< HEAD
-    specifier: ^10.4.15
-=======
     specifier: 10.4.15
->>>>>>> 52fafd27fd4cef51f4cbb78c76b4b2469fc65f48
     version: 10.4.15(postcss@8.4.28)
   eslint:
     specifier: ^8.45.0
@@ -42,27 +38,16 @@ devDependencies:
     specifier: ^0.4.3
     version: 0.4.3(eslint@8.45.0)
   postcss:
-<<<<<<< HEAD
-    specifier: ^8.4.28
-    version: 8.4.28
-  postcss-import:
-    specifier: ^15.1.0
-=======
     specifier: 8.4.28
     version: 8.4.28
   postcss-import:
     specifier: 15.1.0
->>>>>>> 52fafd27fd4cef51f4cbb78c76b4b2469fc65f48
     version: 15.1.0(postcss@8.4.28)
   prettier:
     specifier: 3.0.1
     version: 3.0.1
   tailwindcss:
-<<<<<<< HEAD
-    specifier: ^3.3.3
-=======
     specifier: 3.3.3
->>>>>>> 52fafd27fd4cef51f4cbb78c76b4b2469fc65f48
     version: 3.3.3
   vite:
     specifier: ^4.4.5
