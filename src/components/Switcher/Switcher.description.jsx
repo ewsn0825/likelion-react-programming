@@ -53,6 +53,9 @@ function Switcher() {
     fetchRandomUsers();
   }
 
+  
+
+
   return (
     <button type="button" onClick={handleClick}></button>
   )
