@@ -21,9 +21,12 @@ function LearnStateAndEffects() {
   // 개별 상태 관리 → 그룹(묶음) 상태 관리
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  //구조분해할당 및 리네임(rename)
   const handlePrintMousePosition = ({ pageX: x, pageY: y }) => {
     // setMouseX(e.clientX);
     // setMouseY(e.clientY);
+
+    //shorthand property
     setMousePosition({ x, y });
   };
 
@@ -141,8 +144,4 @@ function LearnStateAndEffects() {
   );
 }
 
-<<<<<<< HEAD
 export default LearnStateAndEffects;
-=======
-export default LearnStateAndEffects;
->>>>>>> ba9415263ab0ae6f29e447adec3a728f369095c3

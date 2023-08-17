@@ -37,10 +37,6 @@ function LearnStateAndEffects() {
             }}
             className="w-[60px] py-1 px-2 border-slate-300 border rounded-xl"
           />
-<<<<<<< HEAD
-    
-=======
->>>>>>> ba9415263ab0ae6f29e447adec3a728f369095c3
         </div>
         <button
           type="button"
@@ -54,8 +50,4 @@ function LearnStateAndEffects() {
   );
 }
 
-<<<<<<< HEAD
 export default LearnStateAndEffects;
-=======
-export default LearnStateAndEffects;
->>>>>>> ba9415263ab0ae6f29e447adec3a728f369095c3

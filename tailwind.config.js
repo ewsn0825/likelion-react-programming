@@ -4,13 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-<<<<<<< HEAD
-        suite: ['SUITE Variable'],
-      },
-=======
         'suit': ['SUIT Variable']
       }
->>>>>>> ba9415263ab0ae6f29e447adec3a728f369095c3
     },
   },
   plugins: [],
