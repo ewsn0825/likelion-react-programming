@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from 'react';
 
 const getFontWeight = (selectedFontWeight) => {
@@ -43,9 +42,8 @@ const fontWeightList = Array(9)
 
 function LearnStateAndEffects() {
   const [fontWeights] = useState(fontWeightList);
-  console.log(fontWeights);
   const [selectedFontWeight, setSelectedFontWeight] = useState(
-    fontWeightList[4] // 400
+    fontWeightList[3] // 400
   );
 
   const fontWeight = getFontWeight(selectedFontWeight);
@@ -56,7 +54,7 @@ function LearnStateAndEffects() {
 
   return (
     <div className="m-10 flex flex-col gap-2 items-start">
-      <h2 className={`text-indigo-600 text-2xl ${fontWeight} uppercase`}>
+      <h2 className={`text-indigo-600 font-suit text-2xl ${fontWeight} uppercase`}>
         상태 및 이펙트 학습하기
       </h2>
 
@@ -68,19 +66,14 @@ function LearnStateAndEffects() {
       >
         {fontWeights.map((weight, index) => {
           const isActive = weight === selectedFontWeight;
-
           return (
             <button
               key={weight}
               type="button"
               onClick={() => handleChangeFontWeight(index)}
               className={`
-                  py-0.5 px-1.5 bg-stone-100 text-stone-600 rounded-full
-                  ${
-                    isActive
-                      ? 'font-extrabold bg-slate-950 text-stone-50'
-                      : 'font=normal'
-                  }
+                  py-0.5 px-1.5 bg-stone-100 rounded-full
+                  ${isActive ? 'bg-stone-950 text-stone-50' : ''}
                   hover:bg-stone-800
                   hover:text-stone-100
                   transition-colors duration-200
@@ -91,15 +84,6 @@ function LearnStateAndEffects() {
           );
         })}
       </div>
-=======
-
-function LearnStateAndEffects() {
-  return (
-    <div className="m-10 flex flex-col gap-2 items-start">
-      <h2 className={`text-indigo-600 font-suit text-2xl`}>
-        상태 및 이펙트 학습하기
-      </h2>
->>>>>>> ba9415263ab0ae6f29e447adec3a728f369095c3
     </div>
   );
 }
