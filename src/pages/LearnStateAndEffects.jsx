@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 상태는 스냅샷 같이 작동한다.
 // 상태란? 시간의 흐름에 따라 변하는 데이터를 말한다.
 // 스냅샷은 흐르는 상태의 특정 시점에서의 데이터 조각을 말한다.
@@ -10,6 +11,8 @@
 
 import { useEffect, useState } from 'react';
 
+=======
+>>>>>>> f92dfd4c5f3de89941313b660ed2f8e86059b30a
 function LearnStateAndEffects() {
   const [count, setCount] = useState(0);
 
