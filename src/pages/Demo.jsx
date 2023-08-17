@@ -41,29 +41,15 @@ import { useState } from 'react';
 
 function DemoPage() {
   // 다크 모드 상태 관리
-<<<<<<< HEAD
-  const [isDarkMode, setIsDarkMode] = useState(true);
-=======
   const [isDarkMode, setIsDarkMode] = useState(false);
->>>>>>> 52fafd27fd4cef51f4cbb78c76b4b2469fc65f48
   const handleToggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
 
   // 리듀스 모션 상태 관리
-<<<<<<< HEAD
-  const [isReducedMotion, setIsReducedMotion] = useState(true);
-  const handleToggleReducedMotion = () => {
-    setIsReducedMotion((prevState) => {
-      console.log(prevState);
-      const nextState = !prevState;
-      return nextState;
-    });
-=======
   const [isReducedMotion, setIsReducedMotion] = useState(false);
   const handleToggleReducedMotion = () => {
     setIsReducedMotion(!isReducedMotion);
->>>>>>> 52fafd27fd4cef51f4cbb78c76b4b2469fc65f48
   };
 
   // 아 유 레디 상태 관리
