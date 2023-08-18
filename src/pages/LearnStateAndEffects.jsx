@@ -1,7 +1,9 @@
 // 데이터 가져오기 (PocketBase 서버: 백엔드 데이터베이스 솔루션)
 
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import Spinner from '@/components/Spinner';
+import useFetchData from '@/hooks/useFetchData';
+
 
 // 1. 컴포넌트에서 관리할 상태(데이터, 상황: 대기, 로딩, 성공, 실패) 정의
 // 2. 서버에 데이터 가져오기 요청/응답
@@ -10,48 +12,22 @@ import Spinner from '@/components/Spinner';
 // 3-2. 오류 상황의 화면
 // 3-3. 성공 상황의 화면: 데이터 기반으로 리스트 렌더링
 
+const PB_TODOS_ENDPOINT = `http://127.0.0.1:8090/api/collections/todos/records`;
+
 function LearnStateAndEffects() {
-  const [data, setData] = useState(null);
-  const [status, setStatus] = useState('pending');
-  const [error, setError] = useState(null);
-
-  // 이펙트가 필요해!!!
-  // React 외적인 일을 처리
-  useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-
-    setStatus('loading');
-
-    fetch('http://127.0.0.1:8090/api/collections/todos/records', { signal })
-      .then((response) => response.json())
-      .then((responseData) => {
-        setStatus('success');
-        setData(responseData);
-      })
-      .catch((error) => {
-        if (!(error instanceof DOMException)) {
-          setStatus('error');
-          setError(error);
-        }
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
+  const {data,isLoading,error} = useFetchData(PB_TODOS_ENDPOINT)
 
   // 함수 몸체: 문 또는 식, 함수
 
   // 상황 별 조건 처리(화면 표시 모드)
 
   // 로딩중인 경우 화면
-  if (status === 'loading') {
+  if (isLoading === 'loading') {
     return <Spinner size={160} title="데이터 가져오는 중이에요." />;
   }
 
   // 오류가 발생한 경우 화면
-  if (status === 'error') {
+  if (isLoading === 'error') {
     return (
       <div role="alert">
         <h2>{error.type}</h2>
