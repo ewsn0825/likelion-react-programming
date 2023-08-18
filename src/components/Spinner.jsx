@@ -87,4 +87,8 @@ function Spinner({
   );
 }
 
+<<<<<<< HEAD
 export default Spinner;
+=======
+export default Spinner;
+>>>>>>> 069255a068788f41a426ba83de67a2401e218179
