@@ -1,56 +1,36 @@
-import { getPbImageURL, numberWithComma } from "@/utils";
-import { useEffect, useState } from "react"
+import Spinner from '@/components/Spinner';
+import useFetchData from '@/hooks/useFetchData';
+import ProductItem from './ProductItem';
 
 const PB_PRODUCTS_ENDPOINT = `
   http://127.0.0.1:8090/api/collections/products/records
 `;
 
 function ProductList() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null); // null | Error
+  const { data, isLoading, error } = useFetchData(PB_PRODUCTS_ENDPOINT);
 
-  useEffect(() => {
-    setIsLoading(true);
+  // 로딩 중인 경우 화면
+  if (isLoading) {
+    return <Spinner size={160} title="데이터 가져오는 중이에요." />;
+  }
 
-    async function fetchProducts() {
-      try {
-        const response = await fetch(PB_PRODUCTS_ENDPOINT)
-        const responseData = await response.json();
-        setData(responseData);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchProducts();
-  }, []);
+  // 오류가 발생한 경우 화면
+  if (error) {
+    return (
+      <div role="alert">
+        <h2>{error.type}</h2>
+        <p>{error.message}</p>
+      </div>
+    );
+  }
 
   return (
-    <ul>
-      { data && data.items && data.items?.map(item => (
-        <ProductItem key={item.id} item={item} />
-      )) }
+    <ul className="grid grid-cols-3 m-10">
+      {data &&
+        data.items &&
+        data.items?.map((item) => <ProductItem key={item.id} item={item} />)}
     </ul>
-  )
+  );
 }
 
-function ProductItem({ item}) {
-  return (
-    <li>
-      <figure className="flex flex-col">
-        <img src={getPbImageURL(item,'photo')} alt="" />
-        <figcaption className="flex flex-col">
-          <span className="title">
-            {item.title} [ {item.color} ]
-          </span>
-          <span className="price">KRW {numberWithComma(item.price)}</span>
-        </figcaption>
-      </figure>
-    </li>
-  )
-}
-
-export default ProductList
+export default ProductList;
