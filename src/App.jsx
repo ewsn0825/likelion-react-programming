@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom';
 import RootLayout from './layout/RootLayout';
 
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
 ]);
 
 console.log(router);
+=======
+import { RouterProvider } from 'react-router-dom';
+import router from './routes';
+>>>>>>> d3fb59935fe3d129f941bdf5665de21eff355926
 
 function App() {
   return (
