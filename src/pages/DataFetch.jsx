@@ -22,10 +22,7 @@ function LearnStateAndEffects() {
   // side effect
   // server request (endpoint)
   useEffect(() => {
-<<<<<<< HEAD
-=======
     
->>>>>>> 069255a068788f41a426ba83de67a2401e218179
     // 상태 변경
     // 대기 → 로딩 중...
     setStatus('loading'); // 상태 업데이트 일괄(batch) 처리
