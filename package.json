@@ -11,16 +11,9 @@
     "pocketbase": "/pocketbase/pocketbase serve"
   },
   "dependencies": {
-<<<<<<< HEAD
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0"
-=======
-    "framer-motion": "10.16.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-router-dom": "6.15.0"
->>>>>>> 66aa10d1ff3a5347f24cbf872595fb62b8ad0601
   },
   "devDependencies": {
     "@types/react": "18.2.15",
