@@ -2,7 +2,10 @@ import { useEffect, useId, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useProductItem from '@/hooks/useProductItem';
 import Spinner from '@/components/Spinner';
-import { useDelete as useDeleteProduct } from '@/hooks/products/useProducts';
+import {
+  useDelete as useDeleteProduct,
+  useUpdate as useUpdateProduct,
+} from '@/hooks/products/useProducts';
 
 const initialFormState = {
   title: '',
@@ -23,6 +26,7 @@ function ProductEdit() {
   const [formState, setFormState] = useState(initialFormState);
 
   const deleteProduct = useDeleteProduct();
+  const updateProduct = useUpdateProduct();
 
   useEffect(() => {
     if (!isLoading && data) {
@@ -43,35 +47,24 @@ function ProductEdit() {
 
   const handleEditProduct = (e) => {
     e.preventDefault(); // ← 이유
-  
+
+    updateProduct(productId, formState)
+      .then(() => navigate('/products'))
+      .catch((error) => console.error(error));
     // client → server(pb)
     // Content-Type: application/json
-    fetch(`${import.meta.env.VITE_PB_API}/collections/products/records/${productId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formState)
-    })
-    .then(() => {
-      navigate('/products');
-    })
-    .catch(error => {
-      console.error(error);
-    });
-
-  }
+  };
 
   const handleDeleteProduct = () => {
     const userConfirm = confirm('정..말로 지울건가요? 🥹');
-    
+
     if (userConfirm) {
       deleteProduct(productId)
         .then((response) => {
-          console.log(response)
-          navigate('/products')
+          console.log(response);
+          navigate('/products');
         })
-        .catch(error => console.error(error));
+        .catch((error) => console.error(error));
 
       // fetch(`${import.meta.env.VITE_PB_API}/collections/products/records/${productId}`, {
       //   method: 'DELETE'
@@ -85,7 +78,7 @@ function ProductEdit() {
       //   console.error(error);
       // });
     }
-  }
+  };
 
   if (isLoading) {
     return <Spinner size={120} />;
@@ -94,7 +87,9 @@ function ProductEdit() {
   if (data) {
     return (
       <>
-        <h2 className="text-2xl text-center">{data.title}({data.color}) 수정 폼</h2>
+        <h2 className="text-2xl text-center">
+          {data.title}({data.color}) 수정 폼
+        </h2>
         <form onSubmit={handleEditProduct}>
           {/* title */}
           <div>
@@ -131,7 +126,9 @@ function ProductEdit() {
           </div>
           <div>
             <button type="submit">수정</button>
-            <button type="button" onClick={handleDeleteProduct}>삭제</button>
+            <button type="button" onClick={handleDeleteProduct}>
+              삭제
+            </button>
           </div>
         </form>
       </>
