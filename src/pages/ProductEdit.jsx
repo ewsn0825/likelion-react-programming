@@ -6,6 +6,7 @@ import {
   useDelete as useDeleteProduct,
   useUpdate as useUpdateProduct,
 } from '@/hooks/products/useProducts';
+import debounce from '@/utils/debounce';
 
 const initialFormState = {
   title: '',
@@ -28,6 +29,10 @@ function ProductEdit() {
   const deleteProduct = useDeleteProduct();
   const updateProduct = useUpdateProduct();
 
+  // useEffect(() => {
+  //   console.log(formState);
+  // }, [formState])
+
   useEffect(() => {
     if (!isLoading && data) {
       setFormState({
@@ -44,15 +49,20 @@ function ProductEdit() {
       [target.name]: target.value,
     });
   };
+  
+  const handleDebounceChangeInput = debounce(({ target }) => {
+    setFormState({
+      ...formState,
+      [target.name]: target.value,
+    });
+  }, 500);
 
   const handleEditProduct = (e) => {
-    e.preventDefault(); // ← 이유
+    e.preventDefault();
 
     updateProduct(productId, formState)
       .then(() => navigate('/products'))
-      .catch((error) => console.error(error));
-    // client → server(pb)
-    // Content-Type: application/json
+      .catch(error => console.error(error));
   };
 
   const handleDeleteProduct = () => {
@@ -65,18 +75,6 @@ function ProductEdit() {
           navigate('/products');
         })
         .catch((error) => console.error(error));
-
-      // fetch(`${import.meta.env.VITE_PB_API}/collections/products/records/${productId}`, {
-      //   method: 'DELETE'
-      // })
-      // .then(() => {
-      //   // PB에서 지웠다(성공)
-      //   // 제품 목록 페이지로 이동
-      //   navigate('/products');
-      // })
-      // .catch(error => {
-      //   console.error(error);
-      // });
     }
   };
 
@@ -85,6 +83,11 @@ function ProductEdit() {
   }
 
   if (data) {
+
+    console.log(formState.title)
+    console.log(formState.color)
+    console.log(formState.price)
+
     return (
       <>
         <h2 className="text-2xl text-center">
@@ -98,8 +101,8 @@ function ProductEdit() {
               type="text"
               name="title"
               id={titleId}
-              value={formState.title}
-              onChange={handleChangeInput}
+              defaultValue={formState.title}
+              onChange={handleDebounceChangeInput}
             />
           </div>
           {/* color */}
@@ -108,9 +111,9 @@ function ProductEdit() {
             <input
               type="text"
               name="color"
-              id={colorId}
-              value={formState.color}
-              onChange={handleChangeInput}
+              id={colorId}  
+              defaultValue={formState.color}
+              onChange={handleDebounceChangeInput}
             />
           </div>
           {/* price */}
@@ -120,8 +123,8 @@ function ProductEdit() {
               type="number"
               name="price"
               id={priceId}
-              value={formState.price}
-              onChange={handleChangeInput}
+              defaultValue={formState.price}
+              onChange={handleDebounceChangeInput}
             />
           </div>
           <div>

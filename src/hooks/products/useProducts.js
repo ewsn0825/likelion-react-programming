@@ -1,5 +1,3 @@
-// import useFetchData from '../useFetchData';
-
 const apiEndpoint = import.meta.env.VITE_PB_API;
 
 export function useRead() {}
@@ -13,9 +11,9 @@ export function useUpdate() {
       {
         method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(productData),
+        body: JSON.stringify(productData)
       }
     );
   };
