@@ -26,6 +26,7 @@ function ProductEdit() {
         price: data.price,
         color: data.color,
       });
+
     }
   }, [isLoading, data]);
 

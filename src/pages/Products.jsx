@@ -24,12 +24,20 @@ function Products() {
     return <Spinner size={160} />;
   }
 
+
+  // if (!data) {
+  //   return <div>데이터를 찾을 수 없습니다.</div>;
+  // }
+  
+  // console.log(data);
+  // console.log(data.items)
+
   return (
     <div>
       <h1 className="text-indigo-950 text-2xl mb-5">Products</h1>
-      <ul className='grid grid-cols-3'>
-        {data.items?.map((item) => (
-          <li key={item.id} className='justify-self-center'>
+      <ul className="grid grid-cols-3">
+        {data?.items?.map((item) => (
+          <li key={item.id} className="justify-self-center">
             <Link to={`/product/edit/${item.id}`}>
               <figure>
                 <img
@@ -37,9 +45,11 @@ function Products() {
                   src={getPbImageURL(item, 'photo')}
                   alt=""
                 />
-                <figcaption className='flex flex-col gap-1 items-center mt-2'>
+                <figcaption className="flex flex-col gap-1 items-center mt-2">
                   <span>{item.title}</span>
-                  <span className='font-semibold'>{numberWithComma(item.price)}</span>
+                  <span className="font-semibold">
+                    {numberWithComma(item.price)}
+                  </span>
                 </figcaption>
               </figure>
             </Link>
