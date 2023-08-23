@@ -14,10 +14,7 @@ export default PassingProps;
 /* -------------------------------------------------------------------------- */
 
 export function Parent() {
-  // 상태
   const [color, setColor] = useState('#999');
-
-  // 상태 업데이트 이벤트 핸들러
   const handleChangeBgColor = (newColor) => setColor(newColor);
 
   return (
